@@ -1,10 +1,37 @@
-<p>
-	Song title: <%= @song.title %><br />
-	<small>Posted by: <%= @song.author %></small>
-</p>
-
-<p>See other songs posted by this author:</p>
-
-<% @other.each do |elem| %>
-	<p><%= elem %></p>
-<% end %>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/songs">Music Sharing Mania</a></li>
+        <li><a href="/songs/new">Add a new song</a></li>
+      </ul>
+    </div>
+  </div>
+</nav> 
+<div>
+<body>
+  <div class="container">
+  <div class="page-header">
+   <div class="jumbotron">
+        <h1><%= @song.title %></h1>
+        <p>Posted by: <%= @song.author %></p>
+      </div>
+      <div class="page-header">
+        <h1>See other songs posted by this author</h1>
+      </div>
+      <p>
+			<% @other.each do |elem| %>
+				<%= elem %>
+			</p>
+			<% end %>
+		</div>
+	</div>
+</body>
