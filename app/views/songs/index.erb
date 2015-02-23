@@ -3,7 +3,7 @@
 </p>
 <% @songs.each do |song| %>
 	<div class="song">
-		<h3><%= song.title %><br/>
+		<h3><a href="/songs/<%= song.id %>"><%= song.title %></a><br/>
 		<small><%= song.author %> </small></h3>
 	</div>
 <% end %>

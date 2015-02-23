@@ -1,0 +1,10 @@
+<p>
+	Song title: <%= @song.title %><br />
+	<small>Posted by: <%= @song.author %></small>
+</p>
+
+<p>See other songs posted by this author:</p>
+
+<% @other.each do |elem| %>
+	<p><%= elem %></p>
+<% end %>
