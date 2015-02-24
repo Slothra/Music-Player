@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Sign-In to Music Sharing Mania!</title>
+    <title>Sign-Up for Music Sharing Mania!</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
@@ -31,42 +31,44 @@
 
     <div class="container">
 
-
-
-
-      <form class="form-signin">
+			<% if @user && @user.errors.any? %>
+			  <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+				    <strong>Some issues with your information, please fix it:</strong>
+				    <ul>
+				      <% @user.errors.full_messages.each do |message| %>
+				        <li><%= message %></li>
+				      <% end %>
+				    </ul>
+			    </div>
+			  </div>
+			<% end %>
+      <form class="form-signin" method="post" action="/sign_up">
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
-            <h2 class="form-signin-heading">Please sign in</h2>
+            <h2 class="form-signin-heading">Please fill in your information</h2>
           </div>
         </div>
-        
+
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
-            <label for="inputEmail" class="sr-only">Email address</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <label for="inputEmail" class="sr-only">Email</label>
+            <input type="email" name="email" id="inputEmail" value ="<%= @user && @user.email %>" class="form-control" placeholder="Email address" required autofocus>
           </div>
         </div>
  
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <input type="password" name="password" id="inputPassword" value ="<%= @user && @user.password %>"class="form-control" placeholder="Password" required>
           </div>
         </div>
 
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign-Up</button>
           </div>
         </div>
-
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3">
-            <br /><a href="/">Aren't a member... yet? Sign-up today!</a>
-          </div>
-        </div>
-      </form>
 
     </div> <!-- /container -->
 
